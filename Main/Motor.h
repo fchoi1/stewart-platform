@@ -11,9 +11,9 @@ class Motor{
 	//Static
     BLA::Matrix<3>  motorDist;      // bi
     BLA::Matrix<3>  localPlatform;  // pi
-	  float betaAngle;
+    float betaAngle;
     float homeAngle;
-	  String motorName;
+    String motorName;
     int motorPin;
     int maxAbsValue;
     int minAbsValue;
@@ -80,8 +80,8 @@ void Motor::displayValues(){
     Serial.println("Max:" + String(maxValue) + "  Min: " + String(minValue) + "   Motor value : " + String(motorValue));
 	  //Serial.println("Platform Vector x: " + String(Platform(0)) + "  y: " + String(Platform(1)) + "   z : " + String(Platform(2)));
 	  //Serial.println("Length Magnitude: " + String(mLengthMag)) ;
-
 }
+
 void Motor::rotate(float angle){
     float angleRatio;
     angleRatio = (angle-homeAngle)/(5*M_PI/9);
@@ -100,20 +100,18 @@ void Motor::rotate(float angle){
 
 void Motor::rotateMax(){
       if(reversed){
-
         motorValue = maxValue;
-        }else{
-          motorValue = minValue;
-        }
+      }else{
+        motorValue = minValue;
+      }
 }
 
 void Motor::rotateMin(){
-          if(reversed){
-
+      if(reversed){
         motorValue = minValue;
-        }else{
-          motorValue = maxValue;
-        }
+      }else{
+        motorValue = maxValue;
+      }
 }
 
 void Motor::increment(int rotateDirection, int increment=5){
